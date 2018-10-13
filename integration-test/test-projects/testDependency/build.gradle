@@ -1,0 +1,26 @@
+apply from: "../commonHeader.gradle"
+buildscript { apply from: "../commonBuildScript.gradle" }
+
+apply plugin: 'com.android.application'
+
+apply from: "../commonLocalRepo.gradle"
+
+android {
+    compileSdkVersion rootProject.latestCompileSdk
+    buildToolsVersion = rootProject.buildToolsVersion
+
+    defaultConfig {
+        versionCode 12
+        versionName "2.0"
+        minSdkVersion 16
+        //noinspection ExpiringTargetSdkVersion,ExpiredTargetSdkVersion
+        targetSdkVersion 16
+    }
+}
+
+dependencies {
+    api 'com.google.guava:guava:18.0'
+
+    // this is added by the test to control the version.
+    //androidTestImplementation 'com.google.guava:guava:x.y'
+}

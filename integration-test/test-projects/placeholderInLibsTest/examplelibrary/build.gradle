@@ -1,0 +1,19 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion rootProject.latestCompileSdk
+    buildToolsVersion = rootProject.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion 15
+        //noinspection ExpiringTargetSdkVersion,ExpiredTargetSdkVersion
+        targetSdkVersion 21
+        versionCode 1
+        versionName "1.0"
+    }
+}
+
+android.testVariants.all {
+    it.mergedFlavor.manifestPlaceholders = [ localApplicationId:"com.example.manifest_merger_example.flavor"]
+}
+

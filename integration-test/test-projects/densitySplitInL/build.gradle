@@ -1,0 +1,26 @@
+apply from: "../commonHeader.gradle"
+buildscript { apply from: "../commonBuildScript.gradle" }
+
+
+apply plugin: 'com.android.application'
+
+android {
+  compileSdkVersion rootProject.latestCompileSdk
+    buildToolsVersion = rootProject.buildToolsVersion
+    generatePureSplits true
+
+  defaultConfig {
+    versionCode 12
+    minSdkVersion 21
+    //noinspection ExpiringTargetSdkVersion,ExpiredTargetSdkVersion
+    targetSdkVersion 21
+  }
+
+  splits {
+    density {
+      enable true
+      exclude "ldpi", "tvdpi", "xxxhdpi"
+    }
+  }
+}
+

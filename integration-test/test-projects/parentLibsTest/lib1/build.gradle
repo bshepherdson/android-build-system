@@ -1,0 +1,13 @@
+apply plugin: 'com.android.library'
+
+android {
+    resourcePrefix 'lib1_'
+    compileSdkVersion rootProject.latestCompileSdk
+    buildToolsVersion = rootProject.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.supportLibMinSdk
+        //noinspection ExpiringTargetSdkVersion,ExpiredTargetSdkVersion
+        targetSdkVersion 15
+    }
+}

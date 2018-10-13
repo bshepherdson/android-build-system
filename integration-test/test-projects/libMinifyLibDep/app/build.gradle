@@ -1,0 +1,34 @@
+apply plugin: 'com.android.application'
+
+dependencies {
+    api project(':lib')
+}
+
+android {
+    compileSdkVersion rootProject.latestCompileSdk
+    buildToolsVersion = rootProject.buildToolsVersion
+
+    testBuildType "release"
+
+    defaultConfig {
+        versionCode 12
+        versionName "2.0"
+        minSdkVersion 16
+        //noinspection ExpiringTargetSdkVersion,ExpiredTargetSdkVersion
+        targetSdkVersion 16
+    }
+
+    buildTypes {
+        release {
+            debuggable true
+            signingConfig signingConfigs.debug
+
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'config.pro'
+        }
+    }
+
+    dexOptions {
+        incremental false
+    }
+}

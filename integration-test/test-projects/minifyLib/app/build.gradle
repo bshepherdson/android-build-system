@@ -1,0 +1,22 @@
+apply plugin: 'com.android.application'
+
+dependencies {
+    api project(':lib')
+}
+
+android {
+    compileSdkVersion rootProject.latestCompileSdk
+    buildToolsVersion = rootProject.buildToolsVersion
+
+    defaultConfig {
+        versionCode 12
+        versionName "2.0"
+        minSdkVersion 16
+        //noinspection ExpiringTargetSdkVersion,ExpiredTargetSdkVersion
+        targetSdkVersion 16
+    }
+
+    dexOptions {
+        incremental false
+    }
+}

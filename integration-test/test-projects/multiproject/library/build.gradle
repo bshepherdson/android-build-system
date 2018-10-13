@@ -1,0 +1,15 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion rootProject.latestCompileSdk
+    buildToolsVersion = rootProject.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.supportLibMinSdk
+    }
+}
+
+dependencies {
+    api project(':baseLibrary')
+    api project(':util')
+}

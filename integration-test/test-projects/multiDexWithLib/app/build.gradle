@@ -1,0 +1,33 @@
+apply plugin: 'com.android.application'
+
+android {
+  compileSdkVersion rootProject.latestCompileSdk
+  buildToolsVersion = rootProject.buildToolsVersion
+
+  defaultConfig {
+    buildConfigField "String", "FOO", "\"foo\""
+
+    multiDexEnabled = true
+  }
+
+  flavorDimensions 'version'
+  productFlavors {
+    ics {
+      minSdkVersion rootProject.supportLibMinSdk
+    }
+    lollipop {
+      minSdkVersion 21
+    }
+  }
+
+  buildTypes {
+    debug {
+      buildConfigField "String", "FOO", "\"bar\""
+      resValue "string", "foo", "foo2"
+    }
+  }
+}
+
+dependencies {
+  api project(':lib')
+}
